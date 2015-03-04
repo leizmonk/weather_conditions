@@ -1,0 +1,44 @@
+<h2>Weather - Local Conditions</h2>
+
+<div class="basic-info">
+	<h4>Current Weather for <%= @location_name %>, <%= @location_country %></h4>
+	<p>Latitude: <%= @latitude %>º | Longitude: <%= @longitude %>º</p>
+	<p>Observed at: <%= @date_time %> EST</p>
+</div>
+
+<div class="weather-conditions">
+	<table class="conditions-table">
+		<tr>
+			<td class="">Current Conditions</td>
+			<td class=""><%= @current_conditions %></td>
+		</tr>		
+		<tr>
+			<td class="">Temperature</td>
+			<td class=""><%= @current_temp %>ºC</td>
+		</tr>
+		<tr>
+			<td class="">Humidity</td>
+			<td class=""><%= @humidity %>%</td>
+		</tr>
+		<tr>
+			<td class="">Wind Speed</td>
+			<td class=""><%= @wind_speed %>mph</td>
+		</tr>
+		<tr>
+			<td class="">Wind Direction</td>
+			<td class=""><%= @wind_dir %>º</td>
+		</tr>		
+		<tr>
+			<td class="">Pressure</td>
+			<td class=""><%= @pressure %>mb</td>
+		</tr>
+	</table>
+</div>
+
+<h4>Find Weather for Another Location</h4>
+<p>You can enter a ZIP code (i.e. "10001"), a city/state combination (i.e. "Las Vegas, NV"), or just the name of a place.</p>
+
+<form method="post" action="/weather_conditions_controller/search" class="button_to" data-remote="true" data-type="script">
+	<input type="text" name="query"><br>
+	<input value="Search" type="submit" />
+</form>
